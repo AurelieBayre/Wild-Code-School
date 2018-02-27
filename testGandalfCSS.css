@@ -6,7 +6,7 @@
 
 /* Positionnements relatifs et absolus */
 .blocImage {
-	position: relative;
+	position: relative; /*pour qu'on puisse mettre les enfants en absolute et les positionner facilement*/
 }
 
 .blocImage * {
@@ -19,13 +19,16 @@
 
 .fondGris {
 	background-color: rgba(220, 220, 220, 0.7);
+	position: relative;
 }
 
 .reward {
+	position: absolute;/*pour pouvoir positionner par rapport au parent*/
 	background-color: rgba(220, 220, 220, 0.7);
-	width: 80%;
-	left: 10%;
-	right: 10%;
+	width: 100%;
+	height: 100%;/*pour que ça fasse la même taille que le parent mais je ne sais pas pourquoi ça n'a pas marché, à investiguer...*/
+	margin-left: auto; /*pour centrer*/
+	margin-right: auto;/*pour centrer*/
 	height: 2.5em;
 	font-size: 20px;
 	border-radius: 20px;
@@ -33,15 +36,22 @@
 }
 
 .gandalf {
+	position: absolute;/*pour pouvoir positionner par rapport au parent*/
 	bottom: 1em;
 	text-align: center;
+	height: 100%;/*pour que ça fasse la même taille que le parent*/
 	width: 100%;
 	font-size: 36px;
 	color: white;
 	font-weight: bold;
+	box-sizing: border-box; /* j'ai ai eu besoin pour que ça ne dépasse pas*/
+	top: 0; /*pour que le .gandalf soit bien calé sur le div parent*/
+	padding-top: 30%; /*à changer à ta convenance*/
 }
 
 /* Hover */
+
+
 .reward:hover {
 	animation: estomperReward;
 	animation-duration: 1s;
@@ -57,7 +67,7 @@
 	animation: descendreNom;
 	animation-duration: 1s;
 	animation-iteration-count: 1;
-	bottom: -1em;
+	padding-top: 60%; /*à changer à ta convenance*/
 	font-size: 18px;
 }
 
